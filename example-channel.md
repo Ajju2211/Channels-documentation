@@ -62,6 +62,6 @@
   
   <br>
   <br>
-  **This is just an example, payloads may contain buttons,quickreplies,text,images,video,documents,location, some other UI also**
+  *This is just an example, payloads may contain buttons,quickreplies,text,images,video,documents,location, some other UI also*
   
   
