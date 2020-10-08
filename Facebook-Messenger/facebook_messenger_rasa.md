@@ -9,8 +9,7 @@
 * Locate the ```App Secret``` in the app dashboard under ```Settings``` &#8594; ```Basic```. This will be the secret key.
 * Use the collected ```secret``` and ```page-access-token``` in the ```credentials.yml```, and add a field called ```verify``` containing a string of your choice. Start ```rasa run``` with the ```--credentials credentials.yml``` option
 * Set up a ```Webhook``` and select either ```messaging``` or ```messaging_postback``` subscriptions. Insert your callback URL, which will look like ```https://<host>:<port>/webhooks/facebook/webhook```, replacing the host and port with the appropriate values from Rasa Open Source server.
-* Insert the Verify Token which has to match the   
-verify entry in your credentials.yml
+* Insert the Verify Token which has to match the verify entry in your credentials.yml
 
 ## Credential.yml contents
 
