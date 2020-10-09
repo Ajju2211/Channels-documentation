@@ -18,3 +18,23 @@ twilio:
   twilio_number: "+440123456789"  # if using WhatsApp: "whatsapp:+440123456789"
  
 Restart your Rasa X or Rasa Open Source server to make the new channel endpoint available for Twilio to send messages to.
+
+#Responding to incoming message
+const http = require('http');
+const express = require('express');
+const MessagingResponse = require('twilio').twiml.MessagingResponse;
+
+const app = express();
+
+app.post('/sms', (req, res) => {
+  const twiml = new MessagingResponse();
+
+  twiml.message('The Robots are coming! Head for the hills!');
+
+  res.writeHead(200, {'Content-Type': 'text/xml'});
+  res.end(twiml.toString());
+});
+
+http.createServer(app).listen(1337, () => {
+  console.log('Express server listening on port 1337');
+});
