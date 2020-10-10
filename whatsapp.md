@@ -74,8 +74,9 @@ print(message.sid)
 
 # Send a WhatsApp message using a template
 For example, if your approved template is:
-Hi {{1}}! Thanks for placing an order with us. We’ll let you know once your order has been processed and delivered. Your order number is {{2}}
-in the Body parameter of the message resource, you would write the following, replacing the {{1}} placeholder with the end user's information:
+* Hi {{1}}! Thanks for placing an order with us. We’ll let you know once your order has been processed and delivered. Your order number is {{2}}
+
+* in the Body parameter of the message resource, you would write the following, replacing the {{1}} placeholder with the end user's information:
 Body=“Hi Joe! Thanks for placing an order with us. We’ll let you know once your order has been processed and delivered. Your order number is O12235234”
 
 # Send and Receive Media Messages with the Twilio API for WhatsApp
@@ -98,7 +99,7 @@ message = client.messages \
      )
 
 print(message.sid)
-## EXAMPLE JSON API RESPONSE
+# EXAMPLE JSON API RESPONSE
 {
   "account_sid": "ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
   "api_version": "2010-04-01",
@@ -132,19 +133,19 @@ print(message.sid)
 * Video: MP4
 # Rich Messaging Features in the Twilio API for WhatsApp
 Formatting in WhatsApp Messages
-Bold Asterisk (*  *)
-Italic	Underscore ( _)
-Strike-through	Tilde (~ )
-Code / Pre-formatted	Three backticks (``` )
+* Bold Asterisk (*  *)
+* Italic	Underscore ( _)
+* Strike-through	Tilde (~ )
+* Code / Pre-formatted	Three backticks (``` )
 
 # Location Messages with WhatsApp
-Sending outbound location messages over WhatsApp is similar to sending a text-based message, with the addition of the PersistentAction parameter in your Twilio API requests, with must include the following information:
-sample payload containing location
-Latitude=37.7879277&Longitude=-122.3937508&Address=375+Beale+St%2C+San+Francisco%2C+CA+94105&SmsMessageSid=SMxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&NumMedia=0&SmsSid=SMxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&Label=Twilio+Inc&Body=&To=whatsapp%3A%2B14155238886&NumSegments=1&MessageSid=SMxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&AccountSid=ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&From=whatsapp%3A%2B12345678900&ApiVersion=2010-04-01
+* Sending outbound location messages over WhatsApp is similar to sending a text-based message, with the addition of the PersistentAction parameter in your Twilio API requests, with must include the following information:
+* sample payload containing location
+*Latitude =37.7879277&Longitude=-122.3937508&Address=375+Beale+St%2C+San+Francisco%2C+CA+94105&SmsMessageSid=SMxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&NumMedia=0&SmsSid=SMxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&Label=Twilio+Inc&Body=&To=whatsapp%3A%2B14155238886&NumSegments=1&MessageSid=SMxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&AccountSid=ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&From=whatsapp%3A%2B12345678900&ApiVersion=2010-04-01
 
 # Start conversations with deep links
-Customers can initiate a conversation with you on WhatsApp through URL deep links, such as on your website. If end users have WhatsApp installed on their devices, clicking the deep link opens a conversation with your business inside of WhatsApp.
-Deep link format : whatsapp://send?phone=<e164 number>&text=Hello!
+* Customers can initiate a conversation with you on WhatsApp through URL deep links, such as on your website. If end users have WhatsApp installed on their devices, clicking the deep link opens a conversation with your business inside of WhatsApp.
+* Deep link format : whatsapp://send?phone=<e164 number>&text=Hello!
 
 # QR Codes and Short Links
 QR codes and short links enable consumers to initiate a conversation with a business without adding a new contact in their phone!
