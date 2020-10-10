@@ -23,9 +23,10 @@ if(conversationType.equalsIgnoreCase("msg"))
                               .build();
   okhttp3.Response response = client.newCall(request).execute();
   
-  ## mmediate response
+  ## immediate response
   In this you return a HTTP response back to the callback without any delay.
-  Pseudo code
+  
+ * Pseudo code
 
 response.setContentType("text/html"); 
 PrintWriter out = response.getWriter();
@@ -34,7 +35,8 @@ out.flush();
 out.close();
 ## Delayed response 
 In this you can use the Gupshup send message API.
-Pseudo code
+* Pseudo code
+
 String botname = "weatherbot";
 String botmessage = "Weather in"+cityName+" is -"+responseofWeatherAPI";
 String URL = "http://api.gupshup.io/sm/api/bot/weatherbot/msg";
