@@ -78,7 +78,7 @@ Content-type: application/json
     - An end-user gives consent(Optin) to receive notification from a business phone number.
 
 Sample
-{"app":"DemoApp","timestamp":1580227393386,"version":2,"type":"user-event","payload":{"phone":"918x98xx21x4","type":"ABC"}}
+```{"app":"DemoApp","timestamp":1580227393386,"version":2,"type":"user-event","payload":{"phone":"918x98xx21x4","type":"ABC"}}```
 * ABC can be sandbox-start/ opted-in/opted-out
 * sandbox-start:This event is received when the app is in Sandbox mode and you have set a callback URL
 * opted-in: This event is received when an end user opt-in to receive notification from a business
@@ -88,7 +88,7 @@ Sample
 Sample:
 Content type: application/json
 
-{"app":"DemoAPI","timestamp":1580546677791,"version":2,"type":"message-event""payload":{"id":"59f8db90-c37e-4408-90ab-cc54ef8246ad","type":"ABC","destination":"91XX985XX10X","payload":{"whatsappMessageId":"gBEGkYaYVSEEAgkD7bRi9syGnBk","type":"session"}}}
+```{"app":"DemoAPI","timestamp":1580546677791,"version":2,"type":"message-event""payload":{"id":"59f8db90-c37e-4408-90ab-cc54ef8246ad","type":"ABC","destination":"91XX985XX10X","payload":{"whatsappMessageId":"gBEGkYaYVSEEAgkD7bRi9syGnBk","type":"session"}}}```
 
 * ABC can be
 * enqueued: Message is successfully sent to WhatsApp Business API client
@@ -105,7 +105,7 @@ In this section we will understand event: message that you receive on your callb
 ## Text
 * Below is a sample payload when a customer sends a text message on WhatsApp to your business number.
 Inbound Body:
-{
+```{
   "app": "DemoApp",
   "timestamp": 1580227766370,
   "version": 2,
@@ -124,7 +124,7 @@ Inbound Body:
       "dial_code": "8x98xx21x4"
     }
   }
-}
+}```
 
 ## Customer Replied to a message
 Users can respond to a specific message in WhatsApp. For the business to understand the context of a message reply, we include the context object. This context object provides the Gupshup message id(property: gsId) of the message to which the customer replied and the WhatsApp message id(property: id) of the original message.
