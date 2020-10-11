@@ -441,6 +441,8 @@ curl --location --request POST 'https://api.gupshup.io/sm/api/v1/msg' \
 Below is a sample payload when sending a template message on WhatsApp.
 
 API URL	https://api.gupshup.io/sm/api/v1/msg
+
+
 Request Headers
 ```	Content-Type:
 application/x-www-form-urlencoded
@@ -462,7 +464,11 @@ Request Body
 
 ## Send text message
 Below is a sample payload when sending a text message on WhatsApp.
+
+
 API URL	https://api.gupshup.io/sm/api/v1/msg
+
+
 Request Headers	
 ```Content-Type:
 application/x-www-form-urlencoded
@@ -492,6 +498,8 @@ WhatsApp supports some formatting in text messages. To format all or part of a m
 ## Send Image message
 Below is a sample payload when sending an image on WhatsApp.
 API URL	https://api.gupshup.io/sm/api/v1/msg
+
+
 Request Headers	
 ```
 Content-Type:
@@ -517,6 +525,8 @@ Request Body
 Below is a sample payload when sending a document / file on WhatsApp.
 
 API URL	https://api.gupshup.io/sm/api/v1/msg
+
+
 Request Headers	
 ```
 Content-Type:
@@ -542,6 +552,8 @@ Below is a sample payload when sending an audio file on WhatsApp.
 
 
 API URL	https://api.gupshup.io/sm/api/v1/msg
+
+
 Request Headers	
 ```Content-Type:
 application/x-www-form-urlencoded
@@ -563,7 +575,10 @@ Request Body
 ## Send Video message
 Below is a sample payload when sending a video on WhatsApp.
 
+
 API URL	https://api.gupshup.io/sm/api/v1/msg
+
+
 Request Headers	
 ```
 Content-Type:
@@ -589,11 +604,15 @@ Below is a sample payload for sending static location to your end-user.
 
 
 API URL	https://api.gupshup.io/sm/api/v1/msg
+
+
 Request Headers
 ```	Content-Type: 
 application/x-www-form-urlencoded
 apikey: {{Your API Key}}
 ```
+
+
 Request Body
 ```
 "channel" : "whatsapp",
@@ -613,11 +632,15 @@ Request Body
 Below is a sample payload for share a contact card with your end-user.
 
 API URL	https://api.gupshup.io/sm/api/v1/msg
+
+
 Request Headers
 ```
 Content-Type: application/x-www-form-urlencoded
 apikey: {{Your API Key}}
 ```
+
+
 Request Body
 ```	"channel" : "whatsapp",
 "source" : "917384811114",
