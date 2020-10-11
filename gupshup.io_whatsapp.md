@@ -691,6 +691,7 @@ Request Body
 Below is a sample payload when sending a sticker on WhatsApp.
 
 API URL	https://api.gupshup.io/sm/api/v1/msg
+
 Request Headers	
 ```Content-Type: application/x-www-form-urlencoded
 apikey: {{Your API Key}}
