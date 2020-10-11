@@ -425,7 +425,7 @@ This are the messages sent to a customer using the send message API
 
 ## API Request
 * Sample API Request
-
+```
 curl --location --request POST 'https://api.gupshup.io/sm/api/v1/msg' \
 --header 'Cache-Control: no-cache' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
@@ -435,16 +435,20 @@ curl --location --request POST 'https://api.gupshup.io/sm/api/v1/msg' \
 --data-urlencode 'destination=918x98xx21x4' \
 --data-urlencode 'message=hi' \
 --data-urlencode 'src.name=DemoApp'
+```
 
 ## Send a Template message
 Below is a sample payload when sending a template message on WhatsApp.
 
 API URL	https://api.gupshup.io/sm/api/v1/msg
-Request Headers	Content-Type:
+Request Headers
+```	Content-Type:
 application/x-www-form-urlencoded
 apikey: {{Your API Key}}
+```
 
-Request Body	
+Request Body
+```	
 "channel" : "whatsapp",
 "source" : "917384811114",
 "destination" : "918x98xx21x4"
@@ -454,16 +458,19 @@ Request Body
         "type": "text",
         "text": "Hi John, your order is confirmed and will be delivered to you by 15 Feb"
 }
+```
 
 ## Send text message
 Below is a sample payload when sending a text message on WhatsApp.
 API URL	https://api.gupshup.io/sm/api/v1/msg
-Request Headers	Content-Type:
+Request Headers	
+```Content-Type:
 application/x-www-form-urlencoded
 apikey: {{Your API Key}}
+```
 
-
-Request Body	
+Request Body
+```	
 "channel" : "whatsapp",
 "source" : "917384811114",
 "destination" : "918x98xx21x4"
@@ -473,6 +480,7 @@ Request Body
         "type": "text",
         "text": "Hi John, how are you?"
 }
+```
 
 ## Formatting Options
 WhatsApp supports some formatting in text messages. To format all or part of a message, use these formatting symbols:
@@ -484,12 +492,15 @@ WhatsApp supports some formatting in text messages. To format all or part of a m
 ## Send Image message
 Below is a sample payload when sending an image on WhatsApp.
 API URL	https://api.gupshup.io/sm/api/v1/msg
-Request Headers	Content-Type:
+Request Headers	
+```
+Content-Type:
 application/x-www-form-urlencoded
 apikey: {{Your API Key}}
-
+```
 
 Request Body	
+```
 "channel" : "whatsapp",
 "source" : "917384811114",
 "destination" : "918x98xx21x4"
@@ -500,16 +511,21 @@ Request Body
         "previewUrl": "https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg",
         "caption":"Sample image"
 }
+```
 
 ## Send document/ file message
 Below is a sample payload when sending a document / file on WhatsApp.
 
 API URL	https://api.gupshup.io/sm/api/v1/msg
-Request Headers	Content-Type:
+Request Headers	
+```
+Content-Type:
 application/x-www-form-urlencoded
 apikey: {{Your API Key}}
+```
 
 Request Body
+```
 "channel" : "whatsapp",
 "source" : "917384811114",
 "destination" : "918x98xx21x4"
@@ -519,17 +535,21 @@ Request Body
         "url": "http://enterprise.smsgupshup.com/doc/GatewayAPIDoc.pdf",
         "filename": "Sample file"
 }
+```
 
 ## Send Audio message
 Below is a sample payload when sending an audio file on WhatsApp.
 
 
 API URL	https://api.gupshup.io/sm/api/v1/msg
-Request Headers	Content-Type:
+Request Headers	
+```Content-Type:
 application/x-www-form-urlencoded
 apikey: {{Your API Key}}
+```
 
-Request Body	
+Request Body
+```	
 "channel" : "whatsapp",
 "source" : "917384811114",
 "destination" : "918x98xx21x4"
@@ -538,15 +558,21 @@ Request Body
         "type": "audio",
         "url": "https://file-examples.com/wp-content/uploads/2017/11/file_example_MP3_700KB.mp3"
 }
+```
 
 ## Send Video message
 Below is a sample payload when sending a video on WhatsApp.
 
 API URL	https://api.gupshup.io/sm/api/v1/msg
-Request Headers	Content-Type:
+Request Headers	
+```
+Content-Type:
 application/x-www-form-urlencoded
 apikey: {{Your API Key}}
+```
+
 Request Body
+```
 "channel" : "whatsapp",
 "source" : "917384811114",
 "destination" : "918x98xx21x4"
@@ -556,16 +582,20 @@ Request Body
         "url":"http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4",
         "caption":"Sample video"
 }
+```
 
 ## Send location message
 Below is a sample payload for sending static location to your end-user.
 
 
 API URL	https://api.gupshup.io/sm/api/v1/msg
-Request Headers	Content-Type: 
+Request Headers
+```	Content-Type: 
 application/x-www-form-urlencoded
 apikey: {{Your API Key}}
+```
 Request Body
+```
 "channel" : "whatsapp",
 "source" : "917384811114",
 "destination" : "918x98xx21x4"
@@ -577,14 +607,19 @@ Request Body
         "name": "Name of the location",
         "address": "Postal address"
 }
+```
 
 ## Send Contact Card
 Below is a sample payload for share a contact card with your end-user.
 
 API URL	https://api.gupshup.io/sm/api/v1/msg
-Request Headers	Content-Type: application/x-www-form-urlencoded
+Request Headers
+```
+Content-Type: application/x-www-form-urlencoded
 apikey: {{Your API Key}}
-Request Body	"channel" : "whatsapp",
+```
+Request Body
+```	"channel" : "whatsapp",
 "source" : "917384811114",
 "destination" : "918x98xx21x4"
 "src.name":"DemoApp"
@@ -650,14 +685,19 @@ Request Body	"channel" : "whatsapp",
                ]
          }
 }
+```
 
 ## Send Stickers
 Below is a sample payload when sending a sticker on WhatsApp.
 
 API URL	https://api.gupshup.io/sm/api/v1/msg
-Request Headers	Content-Type: application/x-www-form-urlencoded
+Request Headers	
+```Content-Type: application/x-www-form-urlencoded
 apikey: {{Your API Key}}
-Request Body	"channel" : "whatsapp",
+```
+Request Body
+```
+"channel" : "whatsapp",
 "source" : "917384811114",
 "destination" : "918x98xx21x4"
 "src.name":"DemoApp"
@@ -665,3 +705,4 @@ Request Body	"channel" : "whatsapp",
         "type": "sticker",
         "url":"https://cdn.getstickerpack.com/storage/uploads/sticker-pack/tunes-traffic/7.png"
 }
+```
