@@ -105,7 +105,7 @@ In this section we will understand event: message that you receive on your callb
 ## Text
 * Below is a sample payload when a customer sends a text message on WhatsApp to your business number.
 Inbound Body:
-```{
+{
   "app": "DemoApp",
   "timestamp": 1580227766370,
   "version": 2,
@@ -124,7 +124,7 @@ Inbound Body:
       "dial_code": "8x98xx21x4"
     }
   }
-}```
+}
 
 ## Customer Replied to a message
 Users can respond to a specific message in WhatsApp. For the business to understand the context of a message reply, we include the context object. This context object provides the Gupshup message id(property: gsId) of the message to which the customer replied and the WhatsApp message id(property: id) of the original message.
