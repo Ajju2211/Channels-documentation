@@ -393,3 +393,253 @@ Inbound Body
     }
   }
 }
+
+# Outbound Message
+This are the messages sent to a customer using the send message API
+
+## API Endpoint
+* To send a message on WhatsApp, the API request is made to this endpoint:
+* https://api.gupshup.io/sm/api/v1/msg
+
+## API Request
+* Sample API Request
+
+curl --location --request POST 'https://api.gupshup.io/sm/api/v1/msg' \
+--header 'Cache-Control: no-cache' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--header 'apikey: 2xxc4x4xx2c94xxxc2f9xx9d43xxxx8a' \
+--data-urlencode 'channel=whatsapp' \
+--data-urlencode 'source=917834811114' \
+--data-urlencode 'destination=918x98xx21x4' \
+--data-urlencode 'message=hi' \
+--data-urlencode 'src.name=DemoApp'
+
+## Send a Template message
+Below is a sample payload when sending a template message on WhatsApp.
+
+API URL	https://api.gupshup.io/sm/api/v1/msg
+Request Headers	Content-Type:
+application/x-www-form-urlencoded
+apikey: {{Your API Key}}
+
+Request Body	
+"channel" : "whatsapp",
+"source" : "917384811114",
+"destination" : "918x98xx21x4"
+"src.name":"DemoApp"
+"message" : {
+        "isHSM":"true",
+        "type": "text",
+        "text": "Hi John, your order is confirmed and will be delivered to you by 15 Feb"
+}
+
+## Send text message
+Below is a sample payload when sending a text message on WhatsApp.
+API URL	https://api.gupshup.io/sm/api/v1/msg
+Request Headers	Content-Type:
+application/x-www-form-urlencoded
+apikey: {{Your API Key}}
+
+
+Request Body	
+"channel" : "whatsapp",
+"source" : "917384811114",
+"destination" : "918x98xx21x4"
+"src.name":"DemoApp"
+"message" : {
+        "isHSM":"false",
+        "type": "text",
+        "text": "Hi John, how are you?"
+}
+
+## Formatting Options
+WhatsApp supports some formatting in text messages. To format all or part of a message, use these formatting symbols:
+* Bold	Asterisk (*)	Your total is *$10.50*.
+* Italics	Underscore (_)	Welcome to _WhatsApp_!	
+* Strike-through	Tilde (~)	This is ~better~ best!	
+* Code	Three backticks (```) 	```print 'Hello World';```
+
+## Send Image message
+Below is a sample payload when sending an image on WhatsApp.
+API URL	https://api.gupshup.io/sm/api/v1/msg
+Request Headers	Content-Type:
+application/x-www-form-urlencoded
+apikey: {{Your API Key}}
+
+
+Request Body	
+"channel" : "whatsapp",
+"source" : "917384811114",
+"destination" : "918x98xx21x4"
+"src.name":"DemoApp"
+"message" : {
+        "type": "image",
+        "originalUrl": "https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg",
+        "previewUrl": "https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg",
+        "caption":"Sample image"
+}
+
+## Send document/ file message
+Below is a sample payload when sending a document / file on WhatsApp.
+
+API URL	https://api.gupshup.io/sm/api/v1/msg
+Request Headers	Content-Type:
+application/x-www-form-urlencoded
+apikey: {{Your API Key}}
+
+Request Body
+"channel" : "whatsapp",
+"source" : "917384811114",
+"destination" : "918x98xx21x4"
+"src.name":"DemoApp"
+"message" : {
+        "type": "file",
+        "url": "http://enterprise.smsgupshup.com/doc/GatewayAPIDoc.pdf",
+        "filename": "Sample file"
+}
+
+## Send Audio message
+Below is a sample payload when sending an audio file on WhatsApp.
+
+
+API URL	https://api.gupshup.io/sm/api/v1/msg
+Request Headers	Content-Type:
+application/x-www-form-urlencoded
+apikey: {{Your API Key}}
+
+Request Body	
+"channel" : "whatsapp",
+"source" : "917384811114",
+"destination" : "918x98xx21x4"
+"src.name":"DemoApp"
+"message" : {
+        "type": "audio",
+        "url": "https://file-examples.com/wp-content/uploads/2017/11/file_example_MP3_700KB.mp3"
+}
+
+## Send Video message
+Below is a sample payload when sending a video on WhatsApp.
+
+API URL	https://api.gupshup.io/sm/api/v1/msg
+Request Headers	Content-Type:
+application/x-www-form-urlencoded
+apikey: {{Your API Key}}
+Request Body
+"channel" : "whatsapp",
+"source" : "917384811114",
+"destination" : "918x98xx21x4"
+"src.name":"DemoApp"
+"message" : {
+        "type": "video",
+        "url":"http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4",
+        "caption":"Sample video"
+}
+
+## Send location message
+Below is a sample payload for sending static location to your end-user.
+
+
+API URL	https://api.gupshup.io/sm/api/v1/msg
+Request Headers	Content-Type: 
+application/x-www-form-urlencoded
+apikey: {{Your API Key}}
+Request Body
+"channel" : "whatsapp",
+"source" : "917384811114",
+"destination" : "918x98xx21x4"
+"src.name":"DemoApp"
+"message" : {
+        "type": "location",
+        "longitude": 43.43,
+        "latitude": 33.34,
+        "name": "Name of the location",
+        "address": "Postal address"
+}
+
+## Send Contact Card
+Below is a sample payload for share a contact card with your end-user.
+
+API URL	https://api.gupshup.io/sm/api/v1/msg
+Request Headers	Content-Type: application/x-www-form-urlencoded
+apikey: {{Your API Key}}
+Request Body	"channel" : "whatsapp",
+"source" : "917384811114",
+"destination" : "918x98xx21x4"
+"src.name":"DemoApp"
+"message" :{
+        "type": "contact",
+        "contact": {
+            "addresses": [
+               {
+                  "city": "Menlo Park",
+                  "country": "United States",
+                  "countryCode": "us",
+                  "state": "CA",
+                  "street": "1 Hacker Way",
+                  "type": "HOME",
+                  "zip": "94025"
+               },
+               {
+                  "city": "Menlo Park",
+                  "country": "United States",
+                  "countryCode": "us",
+                  "state": "CA",
+                  "street": "200 Jefferson Dr",
+                  "type": "WORK",
+                  "zip": "94025"
+               }
+            ],
+            "birthday": "2012-08-18",
+            "emails": [
+               {
+                  "email": "test@fb.com",
+                  "type": "WORK" [
+               },
+               {
+                  "email": "test@whatsapp.com",
+                  "type": "WORK"
+               ],
+            "name": {
+               "firstName": "John",
+               "formattedName": "John Smith",
+               "lastName": "Smith"
+            },
+            "org": {
+               "company": "WhatsApp",
+               "department": "Design",
+               "title": "Manager"
+            },
+            "phones": [
+               {
+                  "phone": "+1 (940) 555-1234",
+                  "type": "HOME"
+               },
+                  {
+                     "phone": "+1 (650) 555-1234",
+                     "type": "WORK",
+                     "wa_id": "16505551234"
+                  }
+            },
+            "urls": [
+                     {
+                     "url": "https://www.facebook.com",
+                        "type": "WORK"
+                     }
+               ]
+         }
+}
+
+## Send Stickers
+Below is a sample payload when sending a sticker on WhatsApp.
+
+API URL	https://api.gupshup.io/sm/api/v1/msg
+Request Headers	Content-Type: application/x-www-form-urlencoded
+apikey: {{Your API Key}}
+Request Body	"channel" : "whatsapp",
+"source" : "917384811114",
+"destination" : "918x98xx21x4"
+"src.name":"DemoApp"
+"message" : {
+        "type": "sticker",
+        "url":"https://cdn.getstickerpack.com/storage/uploads/sticker-pack/tunes-traffic/7.png"
+}
