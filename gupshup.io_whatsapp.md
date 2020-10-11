@@ -87,8 +87,8 @@ Content type: application/json
 * **Inbound Message**
 In this section we will understand event: message that you receive on your callback URL. This event states the type of message payload received on your callback URL when a customer sends a message to the registered WhatsApp number.
 
-##Let us see one by one the types of incoming message received on the Callback URL:
-### Text
+# Let us see one by one the types of incoming message received on the Callback URL:
+## Text
 * Below is a sample payload when a customer sends a text message on WhatsApp to your business number.
 
 
