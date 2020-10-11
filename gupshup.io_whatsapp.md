@@ -100,6 +100,296 @@ Content type: application/json
 # Inbound Message
 In this section we will understand event: message that you receive on your callback URL. This event states the type of message payload received on your callback URL when a customer sends a message to the registered WhatsApp number.
 
+# Let us see one by one the types of incoming message received on the Callback URL:
+## Text
+* Below is a sample payload when a customer sends a text message on WhatsApp to your business number.
+Inbound Body:
+{
+  "app": "DemoApp",
+  "timestamp": 1580227766370,
+  "version": 2,
+  "type": "message",
+  "payload": {
+    "id": "ABEGkYaYVSEEAhAL3SLAWwHKeKrt6s3FKB0c",
+    "source": "918x98xx21x4",
+    "type": "text",
+    "payload": {
+      "text": "Hi"
+    },
+    "sender": {
+      "phone": "918x98xx21x4",
+      "name": "Smit",
+      "country_code": "91",
+      "dial_code": "8x98xx21x4"
+    }
+  }
+}
 
+## Customer Replied to a message
+Users can respond to a specific message in WhatsApp. For the business to understand the context of a message reply, we include the context object. This context object provides the Gupshup message id(property: gsId) of the message to which the customer replied and the WhatsApp message id(property: id) of the original message.
 
+* Inbound Body
+{
+  "app": "DemoApp",
+  "timestamp": 1590854464792,
+  "version": 2,
+  "type": "message",
+  "payload": {
+    "id": "ABEGkYaYVSEEAgo-sMx1DoUoQJRW",
+    "source": "918x98xx21x4",
+    "type": "text",
+    "payload": {
+      "text": "hi"
+    },
+    "sender": {
+      "phone": "918x98xx21x4",
+      "name": "Smit",
+      "country_code": "91",
+      "dial_code": "8x98xx21x4"
+    },
+    "context": {
+      "id": "gBEGkYaYVSEEAgnPFrOLcjkFjL8",
+      "gsId": "9b71295f-f7af-4c1f-b2b4-31b4a4867bad"
+    }
+  }
+}
 
+## Customer clicked on a Quick Reply Button
+When your customer clicks on a quick reply button, a response is sent to your Webhook URL. Below is an example of the callback format.
+Inbound Body
+{
+  "app": "DemoApp",
+  "timestamp": 1590854464792,
+  "version": 2,
+  "type": "message",
+  "payload": {
+    "id": "ABEGkYaYVSEEAgo-sMx1DoUoQJRW",
+    "source": "918x98xx21x4",
+    "type": "text",
+    "payload": {
+      "text": "View Account Balance",
+      "type": "button"
+    },
+    "sender": {
+      "phone": "918x98xx21x4",
+      "name": "Smit",
+      "country_code": "91",
+      "dial_code": "8x98xx21x4"
+    },
+    "context": {
+      "id": "gBEGkYaYVSEEAgnPFrOLcjkFjL8",
+      "gsId": "9b71295f-f7af-4c1f-b2b4-31b4a4867bad"
+    }
+  }
+}
+
+## Image
+Below is a sample payload when a customer sends an image along with a caption on WhatsApp to your business number. If no caption is sent, the “caption” key will be missing in the messageObj object.
+
+Inbound Body
+{
+  "app": "DemoApp",
+  "timestamp": 1580227895991,
+  "version": 2,
+  "type": "message",
+  "payload": {
+    "id": "ABEGkYaYVSEEAhAE0dyndiP9cVlr4hC5xU64",
+    "source": "918x98xx21x4",
+    "type": "image",
+    "payload": {
+      "caption": "Sample image",
+      "url": "https://smapi.gupshup.io/sm/api/wamedia/demobot1/546af999-825e-485b-bf54-4a3323824cca",
+      "urlExpiry": 1580832695997
+    },
+    "sender": {
+      "phone": "918x98xx21x4",
+      "name": "Smit",
+      "country_code": "91",
+      "dial_code": "8x98xx21x4"
+    }
+  }
+}
+
+## Audio
+Below is a sample payload when a customer sends an audio file on WhatsApp to your business number.
+Inbound Body
+{
+  "app": "DemoApp",
+  "timestamp": 1580228104661,
+  "version": 2,
+  "type": "message",
+  "payload": {
+    "id": "ABEGkYaYVSEEAhC8Sqz6bdT95X8wgVH28wz8",
+    "source": "918x98xx21x4",
+    "type": "audio",
+    "payload": {
+      "url": "https://smapi.gupshup.io/sm/api/wamedia/demobot1/f2b80170-981d-4c16-b8be-c12b46ae3436",
+      "urlExpiry": 1580832904661
+    },
+    "sender": {
+      "phone": "918x98xx21x4",
+      "name": "Smit",
+      "country_code": "91",
+      "dial_code": "8x98xx21x4"
+    }
+  }
+}
+
+## Video
+Below is a sample payload when a customer sends a video along with a caption on WhatsApp to your business number.
+Inbound Body	
+{
+  "app": "DemoApp",
+  "timestamp": 1580228336953,
+  "version": 2,
+  "type": "message",
+  "payload": {
+    "id": "ABEGkYaYVSEEAhDHMK-ctBQwqxyKoMbKcxES",
+    "source": "918x98xx21x4",
+    "type": "video",
+    "payload": {
+      "caption": "Funny video",
+      "url": "https://smapi.gupshup.io/sm/api/wamedia/demobot1/9f5ff20a-d14f-47ea-b336-754756a8b950",
+      "urlExpiry": 1580833136954
+    },
+    "sender": {
+      "phone": "918x98xx21x4",
+      "name": "Smit",
+      "country_code": "91",
+      "dial_code": "8x98xx21x4"
+    }
+  }
+}
+
+## Document
+Below is a sample payload when a customer sends a document along with a caption on WhatsApp to your business number. If no caption is sent, the “caption” key will be missing in the messageObj object
+
+Inbound Body	
+{
+  "app": "DemoApp",
+  "timestamp": 1580228523976,
+  "version": 2,
+  "type": "message",
+  "payload": {
+    "id": "ABEGkYaYVSEEAhCzqobr15BdMPcRup1fIXAJ",
+    "source": "918x98xx21x4",
+    "type": "file",
+    "payload": {
+      "caption": "Pentavalent_vaccine_Guide_for_HWs_with_answers_to_FAQs.pdf",
+      "url": "https://smapi.gupshup.io/sm/api/wamedia/demobot1/1c3d7efe-b600-4560-b4d8-36a822310b53",
+      "urlExpiry": 1580833323976
+    },
+    "sender": {
+      "phone": "918x98xx21x4",
+      "name": "Smit",
+      "country_code": "91",
+      "dial_code": "8x98xx21x4"
+    }
+  }
+}
+
+## Location
+Below is a sample payload when a customer shares their location on WhatsApp to your business number. Please note that Live Location is not a supported message type on WhatsApp Business at the moment.
+
+Inbound Body	
+{
+  "app": "DemoApp",
+  "timestamp": 1580228767338,
+  "version": 2,
+  "type": "message",
+  "payload": {
+    "id": "ABEGkYaYVSEEAhCIxTq7KXQIqby1Uo-IO7_E",
+    "source": "918x98xx21x4",
+    "type": "location",
+    "payload": {
+      "longitude": "72.8552172",
+      "latitude": "19.1453658"
+    },
+    "sender": {
+      "phone": "918x98xx21x4",
+      "name": "Smit",
+      "country_code": "91",
+      "dial_code": "8x98xx21x4"
+    }
+  }
+}
+
+## Contact Card
+Below is a sample payload when a customer shares a contact card to your business number.
+Inbound Body	
+{
+  "app": "DemoApp",
+  "timestamp": 1584898884710,
+  "version": 2,
+  "type": "message",
+  "payload": {
+    "id": "ABEGkYaYVSEEAhD9cTZVyPlOGYZJOnviI7OJ",
+    "source": "918698552104",
+    "type": "contact",
+    "payload": {
+      "contacts": [
+        {
+          "addresses": [
+            {
+              "city": "Menlo Park",
+              "country": "United States",
+              "countryCode": "us",
+              "state": "CA",
+              "street": "1 Hacker Way",
+              "type": "HOME",
+              "zip": "94025"
+            },
+            {
+              "city": "Menlo Park",
+              "country": "United States",
+              "countryCode": "us",
+              "state": "CA",
+              "street": "200 Jefferson Dr",
+              "type": "WORK",
+              "zip": "94025"
+            }
+          ],
+          "emails": [
+            {
+              "email": "test@fb.com",
+              "type": "WORK"
+            },
+            {
+              "email": "test@whatsapp.com",
+              "type": "WORK"
+            }
+          ],
+          "ims": [
+
+          ],
+          "name": {
+            "first_name": "Dev",
+            "formatted_name": "Dev Support",
+            "last_name": "Support"
+          },
+          "org": {
+            "company": "Dev Support"
+          },
+          "phones": [
+            {
+              "phone": "+91 77383 05433",
+              "type": "Mobile"
+            }
+          ],
+          "urls": [
+            {
+              "url": "https://www.facebook.com",
+              "type": "WORK"
+            }
+          ]
+        }
+      ]
+    },
+    "sender": {
+      "phone": "918x98xx21x4",
+      "name": "Smit",
+      "country_code": "91",
+      "dial_code": "8x98xx21x4"
+    }
+  }
+}
