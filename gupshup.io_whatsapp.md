@@ -97,7 +97,7 @@ Content type: application/json
 * delivered:	Message sent by your business was delivered to the user's device.
 * read:	Message sent by your business was read by the user. 
 
-## Message
+3 Message
 ### Inbound Message
 In this section we will understand event: message that you receive on your callback URL. This event states the type of message payload received on your callback URL when a customer sends a message to the registered WhatsApp number.
 
